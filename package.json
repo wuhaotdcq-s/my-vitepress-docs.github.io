@@ -15,6 +15,7 @@
   "type": "module",
   "devDependencies": {
     "katex": "^0.16.22",
+    "terser": "^5.44.0",
     "vitepress": "^1.6.4"
   },
   "dependencies": {
