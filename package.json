@@ -1,0 +1,27 @@
+{
+  "name": "my-vitepress-docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "katex": "^0.16.22",
+    "vitepress": "^1.6.4"
+  },
+  "dependencies": {
+    "@mdit/plugin-katex": "^0.23.1",
+    "@neilsustc/markdown-it-katex": "^1.0.0",
+    "markdown-it-katex": "^2.0.3",
+    "mermaid": "^11.12.0",
+    "vitepress-plugin-mermaid": "^2.0.17"
+  }
+}

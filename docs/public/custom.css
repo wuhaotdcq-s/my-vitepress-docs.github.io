@@ -1,0 +1,372 @@
+/* 
+ * VitePress 自定义样式优化
+ * 文件位置：docs/.vitepress/theme/custom.css
+ */
+
+/* ==================== 根变量定义 ==================== */
+/* 这些CSS变量会覆盖VitePress的默认主题变量 */
+:root {
+  /* 品牌色 - 用于链接、按钮、高亮等 */
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-lighter: #9499ff;
+  --vp-c-brand-dark: #535bf2;
+  --vp-c-brand-darker: #454ce1;
+  
+  /* 提示块自定义颜色 - 影响markdown中的:::tip块 */
+  --vp-custom-block-tip-border: var(--vp-c-brand);
+  --vp-custom-block-tip-text: var(--vp-c-brand-dark);
+  --vp-custom-block-tip-bg: rgba(100, 108, 255, 0.1);
+  
+  /* 字体设置 - 影响整个站点的字体显示 */
+  --vp-font-family-base: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --vp-font-family-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
+}
+
+/* ==================== 导航栏优化 ==================== */
+/* 影响顶部导航栏的样式 */
+.VPNav {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 网站标题文字颜色 */
+.VPNav .title {
+  color: white !important;
+}
+
+/* 移除导航栏的幕布效果 */
+.VPNav .curtain {
+  display: none;
+}
+
+/* 导航栏菜单项样式 */
+.VPNavBar .text {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.VPNavBar .text:hover {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ==================== 下拉菜单优化 ==================== */
+/* 影响"更多"下拉菜单的样式 */
+.VPNavBarMenu .button {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.VPNavBarMenu .button:hover {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* 下拉菜单面板样式 */
+.VPNavBarMenu .menu {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.3s ease;
+}
+
+/* 下拉动画效果 */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== 侧边栏优化 ==================== */
+/* 影响左侧导航侧边栏的样式 */
+.VPSidebar {
+  padding: 1rem 0;
+}
+
+/* 侧边栏分组容器 */
+.VPSidebar .group {
+  margin-bottom: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 侧边栏菜单项 */
+.VPSidebar .item {
+  padding: 0.5rem 1rem;
+  margin: 0.25rem 0;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.VPSidebar .item:hover {
+  background: #f1f5f9;
+  color: var(--vp-c-brand);
+}
+
+/* 当前激活的菜单项 */
+.VPSidebar .item.text.active {
+  background: var(--vp-c-brand);
+  color: white;
+}
+
+/* ==================== 内容区域优化 ==================== */
+/* 影响主内容区域的样式 */
+.VPDoc {
+  padding: 2rem;
+}
+
+/* 内容容器 - 包裹所有文档内容 */
+.content-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  padding: 2rem;
+}
+
+/* ==================== 标题样式优化 ==================== */
+/* 影响markdown中的标题样式 */
+.vp-doc h1 {
+  color: #1e293b;
+  border-bottom: 2px solid var(--vp-c-brand);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.vp-doc h2 {
+  color: #334155;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.vp-doc h3 {
+  color: #475569;
+  margin: 1.5rem 0 0.75rem;
+}
+
+/* ==================== 代码块优化 ==================== */
+/* 影响markdown代码块的样式 */
+.vp-doc div[class*='language-'] {
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 行内代码样式 */
+.vp-doc :not(pre) > code {
+  background: #f1f5f9;
+  color: var(--vp-c-brand);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* ==================== 数学公式样式优化 ==================== */
+/* 影响KaTeX公式的显示样式 */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--vp-c-brand);
+}
+
+/* 行内公式样式 */
+.katex {
+  font-size: 1.1em;
+  padding: 0 0.2rem;
+}
+
+/* ==================== 社交链接优化 ==================== */
+/* 影响右上角社交图标链接的样式 */
+.VPSocialLinks {
+  margin: 2rem 0;
+}
+
+.VPSocialLinks .vp-social-link {
+  background: #f1f5f9;
+  border-radius: 6px;
+  padding: 0.5rem;
+  transition: all 0.2s;
+}
+
+.VPSocialLinks .vp-social-link:hover {
+  background: var(--vp-c-brand);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ==================== 页脚优化 ==================== */
+/* 影响页面底部footer的样式 */
+.VPFooter {
+  background: #1e293b;
+  color: #cbd5e1;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+/* 页脚文字样式 */
+.VPFooter .message {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.VPFooter .copyright {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* ==================== 响应式设计 ==================== */
+/* 移动端适配样式 */
+@media (max-width: 768px) {
+  /* 侧边栏在移动端的样式 */
+  .VPSidebar {
+    padding: 0.5rem;
+  }
+  
+  /* 内容区域在移动端的样式 */
+  .VPDoc {
+    padding: 1rem;
+  }
+  
+  /* 内容容器在移动端的样式 */
+  .content-container {
+    padding: 1.5rem;
+  }
+  
+  /* 导航栏在移动端的样式 */
+  .VPNav {
+    padding: 0.5rem 0;
+  }
+}
+
+/* ==================== 自定义块样式优化 ==================== */
+/* 影响markdown中:::tip、:::warning等自定义块的样式 */
+.vp-doc .custom-block {
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid;
+}
+
+/* 提示块特定样式 */
+.vp-doc .custom-block.tip {
+  border-color: var(--vp-custom-block-tip-border);
+  background: var(--vp-custom-block-tip-bg);
+  color: var(--vp-custom-block-tip-text);
+}
+
+/* 警告块样式 */
+.vp-doc .custom-block.warning {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+/* 危险块样式 */
+.vp-doc .custom-block.danger {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* ==================== 搜索框优化 ==================== */
+/* 影响顶部搜索框的样式 */
+.DocSearch {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.DocSearch .DocSearch-Button {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: white;
+}
+
+.DocSearch .DocSearch-Button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ==================== 表格样式优化 ==================== */
+/* 影响markdown表格的样式 */
+.vp-doc table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vp-doc tr:nth-child(2n) {
+  background: #f8fafc;
+}
+
+.vp-doc th {
+  background: var(--vp-c-brand);
+  color: white;
+  font-weight: 600;
+}
+
+/* ==================== 链接样式优化 ==================== */
+/* 影响所有超链接的样式 */
+.vp-doc a {
+  color: var(--vp-c-brand);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-dark);
+  text-decoration: underline;
+}
+
+/* ==================== 列表样式优化 ==================== */
+/* 影响有序和无序列表的样式 */
+.vp-doc ul, .vp-doc ol {
+  padding-left: 1.5rem;
+}
+
+.vp-doc li {
+  margin: 0.5rem 0;
+}
+
+.vp-doc ul li::marker {
+  color: var(--vp-c-brand);
+}
+
+.vp-doc ol li::marker {
+  color: var(--vp-c-brand);
+  font-weight: 600;
+}
+
+/* ==================== 引用块样式优化 ==================== */
+/* 影响markdown引用块的样式 */
+.vp-doc blockquote {
+  border-left: 4px solid var(--vp-c-brand);
+  background: #f8fafc;
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+}
+
+.vp-doc blockquote p {
+  margin: 0;
+  color: #475569;
+}
+
+/* 导航栏链接文字样式 */
+.nav-bar .nav-link {
+  color: white !important; /* 设置白色 */
+  font-weight: bold; /* 黑体/粗体 */
+}
+
+/* 处理活跃状态的导航项 */
+.nav-bar .nav-link.active {
+  color: white !important;
+}
